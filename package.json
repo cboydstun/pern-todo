@@ -1,0 +1,33 @@
+{
+  "name": "pern-todo",
+  "version": "1.0.0",
+  "description": "Todo app with React.js on the frontend, Node.js/Express.js on the backend, and Postgresql as a database.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cboydstun/pern-todo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cboydstun/pern-todo/issues"
+  },
+  "homepage": "https://github.com/cboydstun/pern-todo#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-async-handler": "^1.2.0",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
