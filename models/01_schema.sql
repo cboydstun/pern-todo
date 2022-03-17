@@ -6,5 +6,5 @@ CREATE TABLE notes (
   note TEXT,
   done BOOLEAN DEFAULT FALSE,
   created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-  updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
-);
+  updated_at TIMESTAMP NOT NULL DEFAULT NOW()
+)
