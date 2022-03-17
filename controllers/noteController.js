@@ -1,14 +1,14 @@
 const asyncHandler = require('express-async-handler');
 
 // connect DB
-const pool = require('../config/db');
+const db = require('../config/db');
 
 // @route    GET /api/note
 // @desc     Get all notes
 // @access   Public
 const getNotes = asyncHandler(async (req, res) => {
   const queryString = 'SELECT * FROM notes';
-  const { rows } = await pool.query(queryString);
+  const { rows } = await db.query(queryString);
   res.status(200).json(rows);
 });
 
@@ -22,7 +22,7 @@ const createNotes = asyncHandler(async (req, res) => {
     throw new Error('Please add a note');
   }
   const queryString = 'INSERT INTO notes (note) VALUES ($1) RETURNING *';
-  const { rows } = await pool.query(queryString, [note]);
+  const { rows } = await db.query(queryString, [note]);
   res.status(200).json(rows);
 });
 
@@ -38,7 +38,7 @@ const updateNotes = asyncHandler(async (req, res) => {
     throw new Error('Please add a note');
   }
   const queryString = 'UPDATE notes SET note = $1 , done= $2 WHERE id = $3 RETURNING *';
-  const { rows } = await pool.query(queryString, [note, done,id]);
+  const { rows } = await db.query(queryString, [note, done,id]);
   res.status(200).json(rows);
 });
 
@@ -48,7 +48,7 @@ const updateNotes = asyncHandler(async (req, res) => {
 const deleteNotes = asyncHandler(async (req, res) => {
   const { id } = req.params;
   const queryString = 'DELETE FROM notes WHERE id = $1 RETURNING *';
-  const { rows } = await pool.query(queryString, [id]);
+  const { rows } = await db.query(queryString, [id]);
   res.status(200).json({ msg: 'Delete was successful' });
 });
 

@@ -7,7 +7,7 @@ app.use(express.urlencoded({ extended: false }));
 const SERVERPORT = process.env.PORT || 7000;
 
 // Connect DB
-const pool = require("./config/db");
+const db = require("./config/db");
 
 // Routes
 const noteRoutes = require("./routes/note");
